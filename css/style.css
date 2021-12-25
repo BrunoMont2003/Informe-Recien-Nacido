@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+:root {
+  --main-color: #4f69f4;
+  --hover-color: rgb(79, 105, 244, 0.3);
+}
+header {
+  background-color: var(--main-color);
+}
+main {
+  background-image: url("../img/memphis-colorful.png");
+  min-height: 100vh;
+  /* background-color: rgb(241, 241, 241); */
+  color: var(--main-color);
+}
+form {
+  background-image: url("../img/dot-grid.png");
+}
+h1,
+h2,
+h5 {
+  color: black;
+  font-weight: bolder;
+}
+label {
+  font-weight: bolder;
+}
+input,
+select {
+  background-color: transparent !important;
+  color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+}
+select {
+  color: var(--main-color) !important;
+  /* background-image: url("../img/down-arrow-white.png") !important; */
+}
+input[type="checkbox"] {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+input[type="checkbox"]:checked {
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color) !important;
+}
+input:focus,
+select:focus {
+  background-color: var(--hover-color) !important;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--main-color) !important;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      let text = `Provincia de Atalaya.
+RAYMONDI
+SEPAHUA
+TAHUANIA
+YURUA
+Provincia de Coronel Portillo.
+CALLERIA
+CAMPOVERDE
+IPARIA
+MASISEA
+NUEVA REQUENA
+YARINACHOCHA
+Provincia de Padre Abad.
+CURIMANA
+IRAZOLA
+PADRE ABAD
+Provincia de Purús
+PURUS`;
+
+      let provincias = text.split("Provincia de ");
+      provincias.shift();
+      let nombreProvincias = [];
+      let distritos = [];
+      provincias.forEach((provincia) => {
+        provincia = provincia.split("\n");
+        nombreProvincias.push(provincia[0]);
+        provincia.pop();
+        provincia.shift();
+        distritos.push(provincia);
+      });
+      console.log(nombreProvincias);
+      console.log(distritos);
+
+      const idDepartamento = 24;
+      const yaVan = 188 + 1;
+      const modeloProvincia = (nombre, idDepartamento) => {
+        return `insert into provincias values (null, "${nombre}", ${idDepartamento});`;
+      };
+
+      const modeloDistrito = (nombre, idProvincia) => {
+        return `insert into distritos values (null, "${nombre}", ${idProvincia});`;
+      };
+
+      for (let index = 0; index < nombreProvincias.length; index++) {
+        document.write(
+          modeloProvincia(nombreProvincias[index], idDepartamento)
+        );
+        document.write("<br>");
+        for (let i = 0; i < distritos[index].length; i++) {
+          document.write(modeloDistrito(distritos[index][i], index + yaVan));
+          document.write("<br>");
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>
